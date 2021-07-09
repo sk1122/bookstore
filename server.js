@@ -16,7 +16,10 @@ const db = fs.firestore();
 // Serve static files from the React app
 app.use(
 	cors({
-		origin: ["http://localhost:3000"],
+		origin: [
+			"http://localhost:3000",
+			"https://bookstoreinterview.herokuapp.com/",
+		],
 	})
 );
 app.use(express.urlencoded({ extended: false }));
