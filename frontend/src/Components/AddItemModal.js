@@ -28,7 +28,7 @@ export default function AddItemModal({ show, setShow, name, items }) {
 			isItems: items,
 		});
 
-		fetch("http://localhost:5000/api/v1/books", {
+		fetch(prefixURL + "/api/v1/books", {
 			method: "POST",
 			body: data,
 			headers: {
