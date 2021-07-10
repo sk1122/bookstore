@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { Button, Modal, Form, Container, Row, Col } from "react-bootstrap";
 import { AppContext } from "../context";
+import { prefixURL } from "../config/config";
 
 export default function AddItemModal({ show, setShow, name, items }) {
 	const [data, category, dispatchUserEvent] = useContext(AppContext);
@@ -52,7 +53,7 @@ export default function AddItemModal({ show, setShow, name, items }) {
 	}
 
 	useEffect(() => {
-		fetch(`http://localhost:5000/api/v1/books/${name}`)
+		fetch(`${prefixURL}/api/v1/books/${name}`)
 			.then((res) => res.json())
 			.then((data) => {
 				clearAllFields();

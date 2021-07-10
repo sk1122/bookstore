@@ -4,6 +4,7 @@ import { Container, Button } from "react-bootstrap";
 
 import TabPanel from "./Components/TabPanel";
 import { AppContext } from "./context";
+import { prefixURL } from "./config/config";
 
 export default function App() {
 	const [data, setData] = useState([]);
@@ -12,7 +13,7 @@ export default function App() {
 	function dispatchUserEvent(actionType, payload) {
 		switch (actionType) {
 			case "RESET":
-				fetch("http://localhost:5000/api/v1/books")
+				fetch(prefixURL + "/api/v1/books")
 					.then((res) => res.json())
 					.then((datas) => {
 						console.log(datas, "Started");
